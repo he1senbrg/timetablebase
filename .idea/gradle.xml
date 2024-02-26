@@ -9,7 +9,6 @@
         <option name="modules">
           <set>
             <option value="/vanaheim/Coding/WearOS/TimeTable2" />
-            <option value="/vanaheim/Coding/WearOS/TimeTable2/mobile" />
             <option value="/vanaheim/Coding/WearOS/TimeTable2/wear" />
           </set>
         </option>
