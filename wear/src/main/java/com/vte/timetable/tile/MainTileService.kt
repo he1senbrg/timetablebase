@@ -67,7 +67,7 @@ private fun tileLayout(context: Context): LayoutElementBuilders.LayoutElement {
     val cText = MultiSlotLayout.Builder()
         .addSlotContent(
             LayoutElementBuilders.Text.Builder()
-                .setText("Current : " + getCurrentPeriod())
+                .setText("Now : " + getCurrentPeriod())
                 .build()
         )
         .build()
@@ -155,6 +155,15 @@ fun getCurrentPeriod(): String {
         else if ( cPeriod == 9) {
             cList = ListMonday[9]
         }
+        else if ( cPeriod == 11) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 12) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 13) {
+            cList = "Nothing!"
+        }
     }
     else if (currentDay == 3){
         if ( cPeriod == 1) {
@@ -183,6 +192,15 @@ fun getCurrentPeriod(): String {
         }
         else if ( cPeriod == 9) {
             cList = ListTuesday[9]
+        }
+        else if ( cPeriod == 11) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 12) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 13) {
+            cList = "Nothing!"
         }
     }
     else if (currentDay == 4){
@@ -213,6 +231,15 @@ fun getCurrentPeriod(): String {
         else if ( cPeriod == 9) {
             cList = ListWednesday[9]
         }
+        else if ( cPeriod == 11) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 12) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 13) {
+            cList = "Nothing!"
+        }
     }
     else if (currentDay == 5){
         if ( cPeriod == 1) {
@@ -242,6 +269,15 @@ fun getCurrentPeriod(): String {
         else if ( cPeriod == 9) {
             cList = ListThursday[9]
         }
+        else if ( cPeriod == 11) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 12) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 13) {
+            cList = "Nothing!"
+        }
     }
     else if (currentDay == 6){
         if ( cPeriod == 1) {
@@ -270,6 +306,15 @@ fun getCurrentPeriod(): String {
         }
         else if ( cPeriod == 9) {
             cList = ListFriday[9]
+        }
+        else if ( cPeriod == 11) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 12) {
+            cList = "Break"
+        }
+        else if ( cPeriod == 13) {
+            cList = "Nothing!"
         }
     }
     return cList
@@ -307,6 +352,15 @@ fun getNextPeriod(): String {
         else if ( cPeriod == 9) {
             cList = "Nothing!"
         }
+        else if ( cPeriod == 11) {
+            cList = ListMonday[3]
+        }
+        else if ( cPeriod == 12) {
+            cList = ListMonday[8]
+        }
+        else if ( cPeriod == 13) {
+            cList = ListMonday[1]
+        }
     }
     else if (currentDay == 3){
         if ( cPeriod == 1) {
@@ -335,6 +389,15 @@ fun getNextPeriod(): String {
         }
         else if ( cPeriod == 9) {
             cList = "Nothing!"
+        }
+        else if ( cPeriod == 11) {
+            cList = ListTuesday[3]
+        }
+        else if ( cPeriod == 12) {
+            cList = ListTuesday[8]
+        }
+        else if ( cPeriod == 13) {
+            cList = ListTuesday[1]
         }
     }
     else if (currentDay == 4){
@@ -365,6 +428,15 @@ fun getNextPeriod(): String {
         else if ( cPeriod == 9) {
             cList = "Nothing!"
         }
+        else if ( cPeriod == 11) {
+            cList = ListWednesday[3]
+        }
+        else if ( cPeriod == 12) {
+            cList = ListWednesday[8]
+        }
+        else if ( cPeriod == 13) {
+            cList = ListWednesday[1]
+        }
     }
     else if (currentDay == 5){
         if ( cPeriod == 1) {
@@ -394,6 +466,15 @@ fun getNextPeriod(): String {
         else if ( cPeriod == 9) {
             cList = "Nothing!"
         }
+        else if ( cPeriod == 11) {
+            cList = ListThursday[3]
+        }
+        else if ( cPeriod == 12) {
+            cList = ListThursday[8]
+        }
+        else if ( cPeriod == 13) {
+            cList = ListThursday[1]
+        }
     }
     else if (currentDay == 6){
         if ( cPeriod == 1) {
@@ -422,6 +503,15 @@ fun getNextPeriod(): String {
         }
         else if ( cPeriod == 9) {
             cList = "Nothing!"
+        }
+        else if ( cPeriod == 11) {
+            cList = ListFriday[3]
+        }
+        else if ( cPeriod == 12) {
+            cList = ListFriday[8]
+        }
+        else if ( cPeriod == 13) {
+            cList = ListFriday[1]
         }
     }
     return cList
@@ -461,6 +551,15 @@ fun getPeriodIndex(): Int {
     }
     else if (isCurrentTimeInRange(LocalTime.of(16,0), LocalTime.of(16,50))) {
         periodIndex = 9;
+    }
+    else if (isCurrentTimeInRange(LocalTime.of(10,40), LocalTime.of(10,50))) {
+        periodIndex = 11;
+    }
+    else if (isCurrentTimeInRange(LocalTime.of(15,0), LocalTime.of(15,10))) {
+        periodIndex = 12;
+    }
+    else if (isCurrentTimeInRange(LocalTime.of(6,0), LocalTime.of(9,0))) {
+        periodIndex = 13;
     }
     else {
         periodIndex = 0;
