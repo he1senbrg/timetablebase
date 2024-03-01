@@ -31,5 +31,6 @@ class MainComplicationService : SuspendingComplicationDataSourceService() {
             text = PlainComplicationText.Builder(text).build(),
             contentDescription = PlainComplicationText.Builder(contentDescription).build()
         ).build()
+    // Nothing
 }
 

@@ -57,6 +57,7 @@ private const val RESOURCES_VERSION = "0"
             ).build()
         ).build()
 
+
         return TileBuilders.Tile.Builder().setResourcesVersion(RESOURCES_VERSION)
             .setFreshnessIntervalMillis(300000)
             .setTileTimeline(singleTileTimeline).build()
