@@ -11,12 +11,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.scrollBy
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -24,6 +31,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.DefaultShadowColor
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.input.rotary.onRotaryScrollEvent
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,10 +50,13 @@ import androidx.wear.compose.foundation.lazy.ScalingLazyColumnDefaults
 import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.Card
+import androidx.wear.compose.material.CardDefaults
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
+import androidx.wear.compose.material.Shapes
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
+import androidx.wear.protolayout.ColorBuilders
 import kotlinx.coroutines.launch
 import java.sql.Time
 import java.time.LocalDateTime
@@ -155,8 +170,8 @@ fun ListViewT(navController: NavController, scalingLazyListState: ScalingLazyLis
         item {
             Card(
                 onClick = {navController.navigate("mon")},
-                modifier = Modifier.height(50.dp)
-                // backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.DarkGray)
+                modifier = Modifier.height(50.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
                 // Trying to change card color
 
             ){
@@ -166,7 +181,8 @@ fun ListViewT(navController: NavController, scalingLazyListState: ScalingLazyLis
         item {
             Card(
                 onClick = {navController.navigate("tue")},
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(50.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTableDay("Tuesday")
             }
@@ -174,7 +190,8 @@ fun ListViewT(navController: NavController, scalingLazyListState: ScalingLazyLis
         item {
             Card(
                 onClick = {navController.navigate("wed")},
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(50.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTableDay("Wednesday")
             }
@@ -182,7 +199,8 @@ fun ListViewT(navController: NavController, scalingLazyListState: ScalingLazyLis
         item {
             Card(
                 onClick = {navController.navigate("thu")},
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(50.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTableDay("Thursday")
             }
@@ -190,7 +208,8 @@ fun ListViewT(navController: NavController, scalingLazyListState: ScalingLazyLis
         item {
             Card(
                 onClick = {navController.navigate("fri")},
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(50.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTableDay("Friday")
             }
@@ -251,7 +270,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[1],"9.00 - 9.50")
             }
@@ -259,7 +279,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[2],"9.50 - 10.40")
             }
@@ -267,7 +288,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[3],"10.50 - 11.40")
             }
@@ -275,7 +297,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[4],"11.40 - 12.30")
             }
@@ -283,7 +306,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[5],"12.30 - 1.20")
             }
@@ -291,7 +315,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[6],"1.20 - 2.10")
             }
@@ -299,7 +324,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[7],"2.10 - 3.00")
             }
@@ -307,7 +333,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[8],"3.10 - 4.00")
             }
@@ -315,7 +342,8 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
         item {
             Card(
                 onClick = {},
-                modifier = Modifier.height(70.dp)
+                modifier = Modifier.height(70.dp).border(1.dp, Color.DarkGray, shape = RoundedCornerShape(20.dp)),
+                backgroundPainter = CardDefaults.cardBackgroundPainter(startBackgroundColor = Color.Black, endBackgroundColor = Color.Black)
             ){
                 TextForTablePeriod(PeriodList[9],"4.00 - 4.50")
             }
@@ -329,7 +357,7 @@ fun ListViewDay(PeriodList: List<String>, scalingLazyListState: ScalingLazyListS
 val ListMonday: List<String> = listOf("Monday","EEE","MFC","UI Design","ADM","Break","EOC Lab","EOC Lab","Break","Break")
 val ListTuesday: List<String> = listOf("Tuesday","Java","EOC","Java Lab","Java Lab","Break","MFC","Break","DSA Lab","DSA Lab")
 val ListWednesday: List<String> = listOf("Wednesday","DSA","EOC","EEE","Java","Break","MFC Lab","MFC Lab","Break","Break")
-val ListThursday: List<String> = listOf("Thursday","ADM","DSA","Java","MFC","Break","UID Lab","UID Lab","Break","Break")
+val ListThursday: List<String> = listOf("Thursday","ADM","DSA","Java","MFC","Break","Break","UID Lab","UID Lab","Break")
 val ListFriday: List<String> = listOf("Friday","UI Design","Ma-Om","DSA","Break","Break","EEE Lab","EEE Lab","Break","Break")
 
 @Composable
