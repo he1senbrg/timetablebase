@@ -1,4 +1,4 @@
-# CSE(AI)-B Time Table App for WearOS
+# Time Table App for WearOS
 ## Overview
 This WearOS application is designed specifically for Computer Science Engineering students specializing in Artificial Intelligence at Amrita School of Engineering, Amritapuri campus (ASC). It serves as a convenient tool for students to access their course schedules, ensuring they stay organized and up-to-date with their classes.
 
